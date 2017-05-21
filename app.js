@@ -16,8 +16,12 @@ app.use(allowAll())
 
 const proxy = require('./proxy')
 app.use(proxy)
-const p = require('./testRouter/p')
-app.use('/test', p)
+
+const set = require('./setProxy')
+app.use('/set', set)
+
+const get = require('./getProxy')
+app.use('/get', get)
 app.listen(port, () => {
   console.log(`listen on ${port}`)
 })

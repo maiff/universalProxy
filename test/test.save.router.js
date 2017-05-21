@@ -12,11 +12,11 @@ describe('set router', function () {
       .post('/set')
       .type('form')
       .send({
-        method: 'get',
+        method: 'post',
         withCookie: '0',
         url: 'test',
         getCookie: '1',
-        apiUrl: 'http://baidu.com'
+        apiUrl: 'https://logindict.youdao.com/login/acc/login'
       })
       .expect('Content-Type', /json/)
       .expect(200)

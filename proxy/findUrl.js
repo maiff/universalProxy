@@ -1,3 +1,5 @@
+const find = require('../getProxy/find')
+
 module.exports = function findUrl (url) {
-  return 1
+  return find({url: url})
 }

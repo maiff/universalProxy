@@ -4,15 +4,15 @@ module.exports = function req (method, url, options/*only use get or post (form 
     if (!options.withCookie)
       return request
         .get(url)
-        .query(options.query)
+        .query(options.data)
         .then(res => res.text)
 
     else if (options.withCookie) { // get with cookie
-      let query = Object.assign({}, options.query)
+      let query = Object.assign({}, options.data)
       delete query._cookie
       return request
         .get(url)
-        .set("Cookie", options.query._cookie)
+        .set("Cookie", options.data._cookie)
         .query(query)
         .then(res => res.text)
     }
@@ -26,7 +26,7 @@ module.exports = function req (method, url, options/*only use get or post (form 
     return new Promise((resolve, reject) => { //why not return request starghtly? if not redirects,return promise with emit reject and with redirection not with cookie
       if (options.getCookie) { // post to get cookie
         return _request
-          .send(options.postData)
+          .send(options.data)
           .end((err, res) => {
             resolve({
               cookie: res.header['set-cookie'],
@@ -36,10 +36,10 @@ module.exports = function req (method, url, options/*only use get or post (form 
           })
       }
       else if (options.withCookie) { // post with cookie
-        let postDate = Object.assign({}, options.postData)
+        let postDate = Object.assign({}, options.data)
         delete postDate._cookie
         return _request
-          .set("Cookie", options.postData._cookie)
+          .set("Cookie", options.data._cookie)
           .send(postDate)
           .end((err, res) => {
             resolve(res)
@@ -48,7 +48,7 @@ module.exports = function req (method, url, options/*only use get or post (form 
       }
       else 
         return _request
-          .send(postDate)
+          .send(data)
           .end((err, res) => {
             resolve(res.text)
             err && reject(err)
