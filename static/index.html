@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>卧槽，牛逼了万能代理！</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  <h3>说明</h3>
+  <p>1.支持普通get，带cookie的代理，cookie通过query的_cookie字段</p>
+  <p>2.支持普通post，带cookie的代理，cookie通过postData的_cookie字段,支持请求cookie的字段，返回信息除了有text还有cookie</p>
+  <div class="input-field">
+    <label>请求方法：</label>
+    <select>
+      <option value="get">get</option>
+      <option value="post">post</option>
+    </select>
+    <label>是否带cookie：</label><input type="checkbox" />
+    <label>api地址：</label><input type="text" />
+    <label>请求地址：</label><input type="text" /><!--注意编码问题-->
+    <label>是否为了得到cookie：</label><input type="checkbox" />
+    <input type="button" value="添加"/>
+  </div>
+  </body>
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js">
+  </script>
+  <script>
+
+  </script>
+</html>
