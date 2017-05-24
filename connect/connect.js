@@ -9,7 +9,7 @@ let url = 'mongodb://127.0.0.1:12345/test'
 
 mongoose.connect(url)
 
-db.on('error', () => logger.error('connection error:'))
+db.on('error', () => console.log('connection error:'))
 db.on('open', () => {
   console.log('db open')
 })
