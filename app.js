@@ -2,7 +2,7 @@ const MyExpress = require('./lib/myExpress')
 const serveStatic = require('serve-static')
 const path = require('path')
 
-const port = 30002
+const port = 6666
 
 let app = MyExpress()
 
