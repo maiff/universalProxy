@@ -2,12 +2,12 @@ const MyExpress = require('./lib/MyExpress')
 const serveStatic = require('serve-static')
 const path = require('path')
 
-const port = 6666
+const port = 666
 
 let app = MyExpress()
 
 app.use(serveStatic(path.join(__dirname, '/static'), {
-  maxAge: '1d',
+  maxAge: 0,
   setHeaders: setCustomCacheControl
 }))
 
