@@ -1,4 +1,4 @@
-const MyExpress = require('./lib/myExpress')
+const MyExpress = require('./lib/MyExpress')
 const serveStatic = require('serve-static')
 const path = require('path')
 
