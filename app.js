@@ -1,13 +1,14 @@
 const MyExpress = require('./lib/MyExpress')
 const serveStatic = require('serve-static')
+const compression = require('compression')
 const path = require('path')
 
 const port = 8888
 
 let app = MyExpress()
-
+app.use(compression())
 app.use(serveStatic(path.join(__dirname, '/static'), {
-  maxAge: 0,
+  maxAge: 99999999,
   setHeaders: setCustomCacheControl
 }))
 
